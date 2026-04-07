@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>하얀카지노 공식 웹페이지</title>
+    <style>
+        body { margin: 0; padding: 0; background-color: #f4f4f4; text-align: center; }
+        .container { display: inline-block; position: relative; max-width: 100%; }
+        img { max-width: 100%; height: auto; display: block; border: none; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="하얀배너2.jpg" usemap="#casino-map" alt="하얀카지노 배너">
+
+        <map name="casino-map">
+            <area shape="rect" coords="240,1580,510,1650" href="https://t.me/HayanaCasinoFamily" target="_blank" alt="텔레그램 신청">
+            
+            <area shape="rect" coords="50,300,700,450" href="http://하얀카지노.com" target="_blank" alt="홈페이지 이동">
+            
+            <area shape="rect" coords="50,550,700,750" href="#event-link" alt="이벤트 정보">
+        </map>
+    </div>
+
+</body>
+</html>
