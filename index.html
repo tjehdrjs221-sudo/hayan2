@@ -2,26 +2,53 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>하얀카지노 공식 웹페이지</title>
     <style>
-        body { margin: 0; padding: 0; background-color: #f4f4f4; text-align: center; }
-        .container { display: inline-block; position: relative; max-width: 100%; }
-        img { max-width: 100%; height: auto; display: block; border: none; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #f4f4f4; }
+        .container { width: 100%; }
+        img { width: 100%; height: auto; display: block; border: none; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="하얀배너2.jpg" usemap="#casino-map" alt="하얀카지노 배너">
+        <img src="하얀배너2.jpg" usemap="#casino-map" alt="하얀카지노 배너" id="banner">
 
         <map name="casino-map">
             <area shape="rect" coords="240,1580,510,1650" href="https://t.me/HayanaCasinoFamily" target="_blank" alt="텔레그램 신청">
-            
             <area shape="rect" coords="50,300,700,450" href="http://하얀카지노.com" target="_blank" alt="홈페이지 이동">
-            
             <area shape="rect" coords="50,550,700,750" href="#event-link" alt="이벤트 정보">
         </map>
     </div>
+
+    <script>
+        // 이미지맵 좌표 자동 보정 (화면 크기에 맞게)
+        function resizeMap() {
+            const img = document.getElementById('banner');
+            const scaleX = img.clientWidth / img.naturalWidth;
+            const scaleY = img.clientHeight / img.naturalHeight;
+
+            document.querySelectorAll('map area').forEach(area => {
+                const original = area.getAttribute('data-original-coords') || area.getAttribute('coords');
+                area.setAttribute('data-original-coords', original);
+
+                const scaled = original.split(',').map((val, i) =>
+                    Math.round(val * (i % 2 === 0 ? scaleX : scaleY))
+                ).join(',');
+
+                area.setAttribute('coords', scaled);
+            });
+        }
+
+        // 이미지 로딩 후 + 화면 크기 바뀔 때 실행
+        document.getElementById('banner').addEventListener('load', resizeMap);
+        window.addEventListener('resize', resizeMap);
+
+        // 이미 캐시된 이미지일 경우 대비
+        if (document.getElementById('banner').complete) resizeMap();
+    </script>
 
 </body>
 </html>
